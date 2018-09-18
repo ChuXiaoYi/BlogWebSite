@@ -60,3 +60,24 @@ def detail(request, pk):
         'comment_list': comment_list
     }
     return render(request, template_name='Post/single.html', context=context)
+
+def archives(request, year, month):
+    """
+    按归档搜索
+    :param request:
+    :param year:
+    :param month:
+    :return:
+    """
+    post_list = Post.objects.filter(created_time__year=year, created_time__month=month)
+    context = {
+        'post_list': post_list
+    }
+    return render(request, template_name='Post/index.html', context=context)
+
+def category(request, pk):
+    post_list = Post.objects.filter(category_id=pk)
+    context = {
+        'post_list': post_list
+    }
+    return render(request, template_name='Post/index.html', context=context)

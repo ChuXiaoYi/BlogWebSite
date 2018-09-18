@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 # Create your models here.
 
@@ -28,7 +28,7 @@ class Post(models.Model):
         ordering = ['-created_time']
 
     def get_absolute_url(self):
-        return
+        return reverse('Post:detail', kwargs={'pk': self.id})
 
     def add_views(self):
         """
