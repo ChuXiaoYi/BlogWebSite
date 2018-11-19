@@ -23,7 +23,7 @@ def index(request):
             ]
         )
 
-    limit = 3
+    limit = 5
     paginator = Paginator(post, limit)
     page = request.GET.get('page', 1)
 
