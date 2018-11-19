@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, re_path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path(r'^search/', include('haystack.urls')),
+    # re_path(r'^search/', include('haystack.urls')),
     re_path(r'', include('Post.urls', namespace="Post")),
     re_path(r'', include('comment.urls', namespace="comment")),
 ]
+
+# urlpatterns += staticfiles_urlpatterns()
