@@ -24,4 +24,4 @@ urlpatterns = [
     re_path(r'', include('comment.urls', namespace="comment")),
 ]
 
-# urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()
