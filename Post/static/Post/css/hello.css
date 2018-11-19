@@ -42,7 +42,7 @@ section {
 
 .post .post-head .post-title {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 1.5em;
     line-height: 1em;
 }
 
@@ -70,7 +70,7 @@ a {
 }
 
 .post-content {
-    font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+    font: 400 14px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
     color: #444443;
 }
 

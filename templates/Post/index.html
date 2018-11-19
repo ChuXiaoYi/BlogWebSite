@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="post-content">
-                            <p>{{ post.body | truncatewords:"1" | safe }}</p>
+                            <p>{{ post.body | truncatewords:"5" | safe }}</p>
                         </div>
                         <div class="post-permalink">
                             <a href="{% url 'Post:detail' post.id %}" class="btn btn-default">阅读全文</a>
