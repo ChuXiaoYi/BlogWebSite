@@ -20,8 +20,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     re_path('admin/', admin.site.urls),
     # re_path(r'^search/', include('haystack.urls')),
-    re_path(r'', include('Post.urls', namespace="Post")),
+    re_path(r'post/', include('Post.urls', namespace="Post")),
     re_path(r'', include('comment.urls', namespace="comment")),
+    re_path(r'^api-auth/', include('rest_framework.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

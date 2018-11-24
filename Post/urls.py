@@ -11,9 +11,9 @@ from . import views
 app_name = 'Post'
 
 urlpatterns = [
-    url(r'^$', views.index, name="index"),
-    url(r'^detail/post-(?P<pk>\d+)/$', views.detail, name="detail"),
-    url(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', views.archives, name="archives"),
-    url(r'^category/(?P<pk>\d+)/$', views.category, name='category')
+    url(r'^post_list/$', views.post_list, name="post_list"),
+    url(r'^cate_list/$', views.category_list, name="cate_list"),
+    url(r'^tag_list/$', views.tag_list, name="tag_list"),
+    url(r'^post_list/(?P<pk>[0-9]+)/$', views.post_detail, name="post_detail"),
 
 ]
