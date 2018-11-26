@@ -11,9 +11,12 @@ from Post.models import Post, Category, Tag
 
 
 class PostSerializer(serializers.ModelSerializer):
+    category_name = serializers.StringRelatedField()
+
     class Meta:
         model = Post
-        fields = ('id', 'title', 'body', 'created_time', 'modified_time', 'excerpt', 'category', 'tags', 'views')
+        fields = (
+        'id', 'title', 'body', 'created_time', 'modified_time', 'excerpt', 'category', 'tags', 'views', 'category_name')
 
 
 class CateSerializer(serializers.ModelSerializer):

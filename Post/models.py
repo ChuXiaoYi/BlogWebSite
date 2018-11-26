@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 
 class Category(models.Model):
@@ -10,12 +11,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Tag(models.Model):
     """标签"""
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
 
 class Post(models.Model):
     """文章"""
