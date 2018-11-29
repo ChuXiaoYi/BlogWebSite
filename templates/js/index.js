@@ -3,7 +3,7 @@ var app = angular.module('myApp',['ngSanitize']);
 app.controller('myCtrl', function($scope,$http) {
     $scope.load = function () {
         $http({
-            url:'http://127.0.0.1:8000/post/post_list/',
+            url:'/post/post_list/',
             method: 'GET',
             params :{
 
@@ -21,7 +21,7 @@ app.controller('myCtrl', function($scope,$http) {
         });
 
         $http({
-            url:'http://127.0.0.1:8000/post/cate_list/',
+            url:'/post/cate_list/',
             method: 'GET',
             params :{
 
@@ -35,7 +35,7 @@ app.controller('myCtrl', function($scope,$http) {
         });
 
         $http({
-            url:'http://127.0.0.1:8000/post/achive_list/',
+            url:'/post/achive_list/',
             method: 'GET',
             params :{
 
