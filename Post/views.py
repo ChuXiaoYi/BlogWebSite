@@ -27,7 +27,9 @@ def post_list(request):
                     'markdown.extensions.codehilite',
                     'markdown.extensions.toc',
                     'markdown.extensions.fenced_code',
-                ]
+                ],
+                safe_mode=True,
+                enable_attributes=False
             )
         serializer = PostSerializer(posts, many=True)
         response = JsonResponse(serializer.data, safe=False)
