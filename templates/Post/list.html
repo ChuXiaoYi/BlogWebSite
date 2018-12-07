@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - TemplateMag</title>
-     <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'Post/css/list.css' %}" data-minify="1"/>
     <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
@@ -52,11 +52,11 @@
     </div>
 </div>
 <main id="main">
-    <div class="jumbotron">
-        <div class="container">
-            <img src="{% static 'Post/img/first.jpg' %}">
-        </div>
-    </div>
+    {#    <div class="jumbotron">#}
+    {#        <div class="container">#}
+    {#            <img src="{% static 'Post/img/first.jpg' %}">#}
+    {#        </div>#}
+    {#    </div>#}
     <div class="container-wrap blog-wrap">
         <div class="container">
             <div class="row">
@@ -74,36 +74,56 @@
                                       datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
                                 &nbsp; by <i class="icon-user"></i> Editorial Staff
                             </div>
-                            <div class="entry-content"><p>{{ post.body | truncatewords:"2" | safe }}&hellip;</p></div>
+                            <div class="entry-content">
+                                <img src="{% static 'Post/img/favicon.jpg' %}"/>
+                                <p>{{ post.excerpt }}&hellip;</p>
+                            </div>
                             <div class="etry-more">
                                 <a href="{% url 'Post:detail' post.id %}" rel="bookmark">Read More</a>
                             </div>
                         </article>
                     {% endfor %}
                     <div class="pagination clearfix">
-                        <div class='wp-pagenavi' role='navigation'><span class='pages'>Page 1 of 2</span><span
-                                aria-current='page' class='current'>1</span><a class="page larger" title="Page 2"
-                                                                               href="https://templatemag.com/blog/page/2/">2</a><a
-                                class="nextpostslink" rel="next" href="https://templatemag.com/blog/page/2/">&raquo;</a>
-                        </div>
+                        {#                        <div class='wp-pagenavi' role='navigation'><span class='pages'>Page 1 of 2</span><span#}
+                        {#                                aria-current='page' class='current'>1</span><a class="page larger" title="Page 2"#}
+                        {#                                                                               href="https://templatemag.com/blog/page/2/">2</a><a#}
+                        {#                                class="nextpostslink" rel="next" href="https://templatemag.com/blog/page/2/">&raquo;</a>#}
+                        {#                        </div>#}
+                        <ul class="pager">
+                            {% if page.has_previous %}
+                            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                            {% else %}
+                            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                            {% endif %}
+                            {% if page.has_next %}
+                            <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                            {% else %}
+                            <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-sidebar">
-                        <div class="widget-area"><h3 class="widget-title">Follow Us</h3>
-                            <div class="sidebar-social clearfix"><a href="https://twitter.com/TemplateMag"
-                                                                    target="_blank" class="sidebar-twitter"
-                                                                    title="Follow us on Twitter"><i
-                                    class="icon-twitter"></i></a> <a href="https://facebook.com/TemplateMag"
-                                                                     target="_blank" class="sidebar-facebook"
-                                                                     title="Follow us on Facebook"><i
-                                    class="icon-facebook"></i></a> <a href="https://feeds.feedburner.com/TemplateMag"
-                                                                      target="_blank" class="sidebar-rss"
-                                                                      title="Subscribe to our RSS feed"><i
-                                    class="icon-rss"></i></a> <a
-                                    onclick="javascript:window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"
-                                    class="sidebar-mail" title="Subscribe via Email"><i class="icon-mail-alt"
-                                                                                        style="cursor: pointer;"></i></a>
+                        <div class="widget-area">
+                            <h3 class="widget-title">Follow Us</h3>
+                            <div class="sidebar-social clearfix">
+                                <a href="https://twitter.com/TemplateMag" target="_blank" class="sidebar-twitter"
+                                   title="Follow us on Twitter">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                                <a href="https://facebook.com/TemplateMag" target="_blank" class="sidebar-facebook"
+                                   title="Follow us on Facebook">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                                <a href="https://feeds.feedburner.com/TemplateMag" target="_blank" class="sidebar-rss"
+                                   title="Subscribe to our RSS feed">
+                                    <i class="icon-rss"></i>
+                                </a>
+                                <a onclick="javascript:window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"
+                                   class="sidebar-mail" title="Subscribe via Email">
+                                    <i class="icon-mail-alt" style="cursor: pointer;"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="widget-area">
