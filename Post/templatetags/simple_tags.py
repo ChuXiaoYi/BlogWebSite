@@ -5,6 +5,7 @@
 #       @File    : simple_tags.py
 #       @Software: PyCharm
 # --------------------------------------
+import markdown
 from django import template
 from ..models import Category, Post
 from comment.models import Comment
@@ -37,4 +38,24 @@ def get_archive():
     :return:
     """
     post_list = Post.objects.dates('created_time', 'month', order='DESC')
+    return post_list
+
+
+@register.simple_tag
+def get_newest_post():
+    """
+    获取最热文章
+    :return:
+    """
+    post_list = Post.objects.all()[:3]
+    for p in post_list:
+        p.body = markdown.markdown(
+            p.body,
+            extensions=[
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite',
+                'markdown.extensions.toc',
+                'markdown.extensions.fenced_code',
+            ]
+        )
     return post_list

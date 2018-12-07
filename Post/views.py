@@ -4,13 +4,17 @@ from .models import Post, Category
 from comment.models import Comment
 import markdown
 
+
 def index(request):
     """
     主页
     :param request:
     :return:
     """
+    return render(request=request, template_name='Post/index.html')
 
+
+def list(request):
     post = Post.objects.all()
     for p in post:
         p.body = markdown.markdown(
@@ -32,7 +36,7 @@ def index(request):
         "post_list": result,
         "page": page,
     }
-    return render(request=request, template_name='Post/index.html', context=context)
+    return render(request=request, template_name='Post/list.html', context=context)
 
 
 def detail(request, pk):
@@ -44,22 +48,22 @@ def detail(request, pk):
     """
     post = Post.objects.get(id=pk)
     post.add_views()
-    post.body = markdown.markdown(
-        post.body,
-        extensions=[
+    md = markdown.Markdown(extensions=[
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
             'markdown.extensions.toc',
-        ]
-    )
+        ])
+    post.body = md.convert(post.body)
 
     comment_list = Comment.objects.filter(post__id=pk)
 
     context = {
         'post': post,
+        'toc': md.toc,
         'comment_list': comment_list
     }
     return render(request, template_name='Post/single.html', context=context)
+
 
 def archives(request, year, month):
     """
@@ -74,6 +78,7 @@ def archives(request, year, month):
         'post_list': post_list
     }
     return render(request, template_name='Post/index.html', context=context)
+
 
 def category(request, pk):
     post_list = Post.objects.filter(category_id=pk)
