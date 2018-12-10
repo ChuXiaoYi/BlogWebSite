@@ -135,5 +135,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/BlogWebSite/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "Post/static")
 ]
