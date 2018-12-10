@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - TemplateMag</title>
-     <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'Post/css/single.css' %}" data-minify="1"/>
     <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
@@ -28,34 +28,23 @@
 <body class="archive post-type-archive post-type-archive-blog">
 <header id="header">
     <div class="container">
-        <div class="logo"><a href="https://templatemag.com/" rel="home" title="TemplateMag">
+        <div class="logo"><a href="{% url 'Post:list' %}" rel="home" title="PostList">
             <img src="{% static 'Post/img/favicon.jpg' %}"></a>
         </div>
         <nav id="topnav">
             <ul>
-                <li><a href="https://templatemag.com/">Home</a></li>
-                <li><a href="https://templatemag.com/bootstrap-templates/">Bootstrap Templates</a></li>
-                <li><a href="https://templatemag.com/license/">License</a></li>
-                <li><a href="https://templatemag.com/blog/" class="active">Blog</a></li>
-                <li><a href="https://templatemag.com/members/?nav=support" rel="nofollow">Support</a></li>
-                <li><a href="https://templatemag.com/contact/">Contact</a></li>
-                <li class="members"><a href="https://templatemag.com/members/" rel="nofollow"> <i
-                        class="icon-login"></i> Login </a></li>
+                <li><a href="{% url 'Post:index' %}">Home</a></li>
+                <li><a href="{% url 'Post:list' %}">Blog</a></li>
             </ul>
         </nav>
-        <i class="icon-search search-toggle" title="Togle Search Bar"></i></div>
-</header>
-<div title="Search" class="top-search">
-    <div class="container">
-        <div class="row justify-content-lg-center">
-            <div class="col-lg-6">
-                <form method="get" action="https://templatemag.com/">
-                    <button type="submit">Search</button>
-                    <span> <input type="text" value="" name="s" placeholder="Search"/> </span></form>
-            </div>
-        </div>
+        <form class="input-group" action="{% url 'haystack_search' %}">
+            <input class="form-control" type="search" name="q" placeholder="search">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+        </form>
     </div>
-</div>
+</header>
 <main id="main">
     <header class="page-header">
         <div class="container">
@@ -74,20 +63,21 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                        <article id="post-77" class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
+                    <article id="post-77"
+                             class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
 
-                            <h2 class="entry-title">
-                                <a href="https://templatemag.com/blog/real-estate-website-templates/" rel="bookmark">
-                                    {{ post.title }}
-                                </a>
-                            </h2>
-                            <div class="entry-meta"><i class="icon-clock"></i>
-                                <time class="meta-date" itemprop="datePublished"
-                                      datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
-                                &nbsp; by <i class="icon-user"></i> Editorial Staff
-                            </div>
-                            <div class="entry-content"><p>{{ post.body | safe }}&hellip;</p></div>
-                        </article>
+                        <h2 class="entry-title">
+                            <a href="https://templatemag.com/blog/real-estate-website-templates/" rel="bookmark">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+                        <div class="entry-meta"><i class="icon-clock"></i>
+                            <time class="meta-date" itemprop="datePublished"
+                                  datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
+                            &nbsp; by <i class="icon-user"></i> Editorial Staff
+                        </div>
+                        <div class="entry-content"><p>{{ post.body | safe }}&hellip;</p></div>
+                    </article>
                 </div>
             </div>
         </div>

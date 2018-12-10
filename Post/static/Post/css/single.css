@@ -6125,3 +6125,8 @@ body {
 #header > .container > #topnav {
     float: left;
 }
+
+#header > .container > form {
+    max-width: 20%;
+    float: right;
+}
