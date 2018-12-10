@@ -132,4 +132,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/var/www/BlogWebSite'
+STATIC_ROOT = '/var/www/BlogWebSite/static/'
