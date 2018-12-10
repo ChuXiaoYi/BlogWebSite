@@ -16,15 +16,11 @@
     <meta name="generator" content="WordPress 4.9.8"/>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55234356-6"></script>
     <script>window.dataLayer = window.dataLayer || [];
-
     function gtag() {
         dataLayer.push(arguments);
     }
-
     gtag('js', new Date());
-
     gtag('config', 'UA-55234356-6');</script>
-    {#    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>#}
 </head>
 <body class="archive post-type-archive post-type-archive-blog">
 <header id="header">
@@ -34,7 +30,7 @@
         </div>
         <nav id="topnav">
             <ul>
-                <li><a href="{% url 'Post:index' %}">Home</a></li>
+                <li><a href="{% url 'Post:list' %}">Home</a></li>
                 <li><a href="{% url 'Post:list' %}">Blog</a></li>
             </ul>
         </nav>
@@ -104,33 +100,12 @@
                         <param name="bgcolor" value="#ffffff">
                         <param name="wmode" value="transparent">
                         <embed wmode="transparent"
-                               src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf?IsAutoPlay=1"
+                               src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf"
                                quality="high" bgcolor="#ffffff" width="100%" height="auto" name="honehoneclock"
                                align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"
                                pluginspage="http://www.macromedia.com/go/getflashplayer">
                     </object>
                     <div class="blog-sidebar">
-{#                        <div class="widget-area">#}
-{#                            <h3 class="widget-title">Follow Us</h3>#}
-{#                            <div class="sidebar-social clearfix">#}
-{#                                <a href="https://twitter.com/TemplateMag" target="_blank" class="sidebar-twitter"#}
-{#                                   title="Follow us on Twitter">#}
-{#                                    <i class="icon-twitter"></i>#}
-{#                                </a>#}
-{#                                <a href="https://facebook.com/TemplateMag" target="_blank" class="sidebar-facebook"#}
-{#                                   title="Follow us on Facebook">#}
-{#                                    <i class="icon-facebook"></i>#}
-{#                                </a>#}
-{#                                <a href="https://feeds.feedburner.com/TemplateMag" target="_blank" class="sidebar-rss"#}
-{#                                   title="Subscribe to our RSS feed">#}
-{#                                    <i class="icon-rss"></i>#}
-{#                                </a>#}
-{#                                <a onclick="javascript:window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"#}
-{#                                   class="sidebar-mail" title="Subscribe via Email">#}
-{#                                    <i class="icon-mail-alt" style="cursor: pointer;"></i>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        </div>#}
                         <div class="widget-area">
                             <h3>Category</h3>
                             {% get_categories as catelist %}
@@ -140,36 +115,6 @@
                                 {% endfor %}
                             </ul>
                         </div>
-                        {#                        <div class="widget-area"><h3 class="widget-title">Recent Posts</h3>#}
-                        {#                            <ul>#}
-                        {#                                <li><a href="https://templatemag.com/blog/real-estate-website-templates/"#}
-                        {#                                       rel="bookmark">Best Real Estate Website Templates to Sell Properties 2018</a>#}
-                        {#                                </li>#}
-                        {#                                <li><a href="https://templatemag.com/blog/travel-website-templates/" rel="bookmark">20+#}
-                        {#                                    Top Travel and Accommodation Website Templates 2018</a></li>#}
-                        {#                                <li><a href="https://templatemag.com/blog/sports-website-templates/" rel="bookmark">20+#}
-                        {#                                    Top Sports Website Templates 2018</a></li>#}
-                        {#                                <li><a href="https://templatemag.com/blog/news-and-magazine-website-templates/"#}
-                        {#                                       rel="bookmark">20+ Best News and Magazine Website Templates 2018</a></li>#}
-                        {#                                <li><a href="https://templatemag.com/blog/automotive-website-templates/" rel="bookmark">20+#}
-                        {#                                    Stunning Automotive &#038; Cars Website Templates 2018</a></li>#}
-                        {#                            </ul>#}
-                        {#                        </div>#}
-                        {#                        <div class="widget-area"><h3 class="widget-title">Newsletter</h3>#}
-                        {#                            <div class="newsletter"><p>Subscribe to get notified about updates</p>#}
-                        {#                                <form class="clearfix" action="https://feedburner.google.com/fb/a/mailverify"#}
-                        {#                                      method="post" target="popupwindow"#}
-                        {#                                      onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">#}
-                        {#                                    <input type="hidden" value="TemplateMag" name="uri"/> <input type="hidden"#}
-                        {#                                                                                                 name="loc"#}
-                        {#                                                                                                 value="en_US"/>#}
-                        {#                                    <div class="email"><input type="text" name="email" placeholder="Enter your email">#}
-                        {#                                    </div>#}
-                        {#                                    <div class="submit"><input type="submit" value="Subscribe"/></div>#}
-                        {#                                </form>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
-
                     </div>
                 </div>
             </div>
