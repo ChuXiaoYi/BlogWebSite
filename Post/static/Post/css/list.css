@@ -849,7 +849,7 @@ body {
 }
 
 /**, ::after, ::before {*/
-    /*box-sizing: border-box*/
+/*box-sizing: border-box*/
 /*}*/
 
 html {
@@ -5954,7 +5954,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 
     .blog-sidebar {
-        margin-top: 30px
+        margin-top: 50px
     }
 
     .template-sidebar {
@@ -6128,3 +6128,8 @@ body {
     max-width: 20%;
     float: right;
 }
+
+.post .entry-meta .meta-date{
+    margin-right: 10px;
+}
+

@@ -30,7 +30,6 @@ def list(request):
     limit = 3
     paginator = Paginator(post, limit)
     page = request.GET.get('page', 1)
-
     result = paginator.page(page)
     context = {
         "post_list": result,
@@ -85,4 +84,4 @@ def category(request, pk):
     context = {
         'post_list': post_list
     }
-    return render(request, template_name='Post/index.html', context=context)
+    return render(request, template_name='Post/list.html', context=context)
