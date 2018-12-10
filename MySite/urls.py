@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r'^search/', include('haystack.urls')),
     re_path(r'', include('Post.urls', namespace="Post")),
     re_path(r'', include('comment.urls', namespace="comment")),
-    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
