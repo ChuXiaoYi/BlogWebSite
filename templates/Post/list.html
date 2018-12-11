@@ -16,11 +16,18 @@
     <meta name="generator" content="WordPress 4.9.8"/>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55234356-6"></script>
     <script>window.dataLayer = window.dataLayer || [];
+
     function gtag() {
         dataLayer.push(arguments);
     }
+
     gtag('js', new Date());
     gtag('config', 'UA-55234356-6');</script>
+    <script>
+        window.onload = function () {
+            $('#honehoneclock').play();
+        };
+    </script>
 </head>
 <body class="archive post-type-archive post-type-archive-blog">
 <header id="header">
@@ -52,7 +59,7 @@
                         <article id="post-77"
                                  class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
                             <h2 class="entry-title">
-                                <a href="https://templatemag.com/blog/real-estate-website-templates/" rel="bookmark">
+                                <a href="{% url 'Post:list' %}" rel="bookmark">
                                     {{ post.title }}
                                 </a>
                             </h2>
@@ -99,6 +106,7 @@
                         <param name="quality" value="high">
                         <param name="bgcolor" value="#ffffff">
                         <param name="wmode" value="transparent">
+                        <param name="play" value="true">
                         <embed wmode="transparent"
                                src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf"
                                quality="high" bgcolor="#ffffff" width="100%" height="auto" name="honehoneclock"
