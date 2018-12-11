@@ -71,15 +71,35 @@
                                 {{ post.title }}
                             </a>
                         </h2>
-                        <div class="entry-meta"><i class="icon-clock"></i>
+                        <div class="entry-meta">
+                            <i class="glyphicon glyphicon-time"></i>
                             <time class="meta-date" itemprop="datePublished"
                                   datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
-                            &nbsp; by <i class="icon-user"></i> Editorial Staff
+                            &nbsp<i class="glyphicon glyphicon-tags"></i>&nbsp;
+                            <span class="post-cate">{{ post.category.name }}</span>
                         </div>
-                        <div class="entry-content"><p>{{ post.body | safe }}&hellip;</p></div>
+                        <div class="entry-content" id="entry-content"><p>{{ post.body | safe }}&hellip;</p></div>
+                        <div class="hide-article-box text-center" id="hide-article-box">
+                            <a class="btn" id="btn-readmore" onclick="btnReadMore()">阅读更多</a>
+                        </div>
                     </article>
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+<script>
+    window.onload = function () {
+        var readMore = document.getElementById('btn-readmore');
+        var hideArticleBox = document.getElementById('hide-article-box');
+        var content = document.getElementById('entry-content');
+        readMore.onclick = function () {
+            content.style.height = 'auto';
+            hideArticleBox.style.display = 'none';
+        }
+    }
+
+</script>

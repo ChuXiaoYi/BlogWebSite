@@ -4298,6 +4298,8 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5em;
+    height: 828px;
+    overflow: hidden;
 }
 
 .post .entry-content img {
@@ -6130,3 +6132,19 @@ body {
     max-width: 20%;
     float: right;
 }
+
+article.post div.hide-article-box {
+    padding-bottom: 20px;
+    position: absolute;
+    z-index: 9999;
+    bottom: -1px;
+    width: 100%;
+    padding-top: 160px;
+    background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, #fff 70%);
+}
+
+article.post div.hide-article-box #btn-readmore{
+    color: #ca0c16;
+    border: 1px solid #ca0c16;
+}
+
