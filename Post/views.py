@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Post, Category
+from django.utils.text import slugify
+from markdown.extensions.toc import TocExtension
 from comment.models import Comment
 import markdown
 
@@ -48,10 +50,10 @@ def detail(request, pk):
     post = Post.objects.get(id=pk)
     post.add_views()
     md = markdown.Markdown(extensions=[
-            'markdown.extensions.extra',
-            'markdown.extensions.codehilite',
-            'markdown.extensions.toc',
-        ])
+        'markdown.extensions.extra',
+        'markdown.extensions.codehilite',
+        TocExtension(slugify=slugify),
+    ])
     post.body = md.convert(post.body)
 
     comment_list = Comment.objects.filter(post__id=pk)
