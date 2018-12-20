@@ -23,6 +23,8 @@ urlpatterns = [
     re_path(r'^search/', include('haystack.urls')),
     re_path(r'', include('Post.urls', namespace="Post")),
     re_path(r'', include('comment.urls', namespace="comment")),
+    re_path(r'mdeditor/', include('mdeditor.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

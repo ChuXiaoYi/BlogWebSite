@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from mdeditor.fields import MDTextField
 
 
 # Create your models here.
@@ -23,9 +24,9 @@ class Tag(models.Model):
 class Post(models.Model):
     """文章"""
     title = models.CharField(max_length=100)
-    body = models.TextField()
-    created_time = models.DateTimeField()
-    modified_time = models.DateTimeField()
+    body = MDTextField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    modified_time = models.DateTimeField(auto_now=True)
     excerpt = models.CharField(max_length=100, blank=True)  # 文章摘要，可为空
     category = models.ForeignKey(Category, on_delete=True)  # ForeignKey表示1对多（多个post对应1个category）
     tags = models.ManyToManyField(Tag, blank=True)

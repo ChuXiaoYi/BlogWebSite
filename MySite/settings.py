@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ["*", ]
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'haystack',
     "Post",
-    "comment"
+    "comment",
+    'mdeditor'
 ]
 
 HAYSTACK_CONNECTIONS = {
@@ -125,7 +127,10 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+DATETIME_FORMAT = 'Y-m-d H:i:s'
+DATE_FORMAT = 'Y-m-d'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -137,3 +142,6 @@ STATIC_ROOT = '/var/www/BlogWebSite/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "Post/static")
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  #uploads必须存在，且在项目目录下
+MEDIA_URL = '/media/'   #你上传的文件和图片会默认存在/uploads/editor下
