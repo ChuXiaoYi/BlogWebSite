@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+{% load simple_tags %}
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TemplateMag</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Post/css/list.css' %}"/>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+    <link rel="stylesheet" href="{% static 'Post/css/code.css' %}">
+    <link rel="icon" href="{% static 'Post/img/favicon.jpg' %}">
+    <script type='text/javascript' src='{% static 'Post/js/jquery-2.1.3.min.js' %}'></script>
+    <meta name="generator" content="WordPress 4.9.8"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55234356-6"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-55234356-6');</script>
+    <script>
+        window.onload = function () {
+            $('#honehoneclock').play();
+        };
+    </script>
+</head>
+<body class="archive post-type-archive post-type-archive-blog">
+<header id="header">
+    <div class="container">
+        <div class="logo"><a href="{% url 'Post:list' %}" rel="home" title="PostList">
+            <img src="{% static 'Post/img/favicon.jpg' %}"></a>
+        </div>
+        <nav id="topnav">
+            <ul>
+                <li><a href="{% url 'Post:list' %}">Home</a></li>
+                <li><a href="{% url 'Post:list' %}">Blog</a></li>
+            </ul>
+        </nav>
+        <form class="input-group" action="{% url 'haystack_search' %}">
+            <input class="form-control" type="search" name="q" placeholder="search">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+        </form>
+    </div>
+</header>
+
+<main id="main">
+    <div class="container-wrap blog-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% for post in post_list %}
+                        <article id="post-77"
+                                 class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
+                            <h2 class="entry-title">
+                                <a href="{% url 'Post:detail' post.id %}" rel="bookmark">
+                                    {{ post.title }}
+                                </a>
+                            </h2>
+                            <div class="entry-meta"><i class="glyphicon glyphicon-time"></i>
+                                <time class="meta-date" itemprop="datePublished"
+                                      datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
+                                <i class="glyphicon glyphicon-tags"></i>&nbsp;
+                                <span class="post-cate">{{ post.category.name }}</span>
+                            </div>
+                            <div class="entry-content">
+                                <p>{{ post.excerpt }}&hellip;</p>
+                            </div>
+                            <div class="etry-more">
+                                <a href="{% url 'Post:detail' post.id %}" rel="bookmark">Read More</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                    <div class="pagination clearfix">
+                        <ul class="pager">
+                            {% if post_list.has_previous %}
+                                <li class="previous"><a href="?page={{ post_list.previous_page_number }}"><span
+                                        aria-hidden="true">&larr;</span> Newer</a></li>
+                            {% else %}
+                                <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span>
+                                    Newer</a></li>
+                            {% endif %}
+                            {% if post_list.has_next %}
+                                <li class="next"><a href="?page={{ post_list.next_page_number }}">Older <span
+                                        aria-hidden="true">&rarr;</span></a></li>
+                            {% else %}
+                                <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                            codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0"
+                            width="100%" height="auto" id="honehoneclock" align="middle">
+                        <param name="allowScriptAccess" value="always">
+                        <param name="movie"
+                               value="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf">
+                        <param name="quality" value="high">
+                        <param name="bgcolor" value="#ffffff">
+                        <param name="wmode" value="transparent">
+                        <param name="play" value="true">
+                        <embed wmode="transparent"
+                               src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.swf"
+                               quality="high" bgcolor="#ffffff" width="100%" height="auto" name="honehoneclock"
+                               align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"
+                               pluginspage="http://www.macromedia.com/go/getflashplayer">
+                    </object>
+                    <div class="blog-sidebar">
+                        <div class="widget-area">
+                            <h3>Category</h3>
+                            {% get_categories as catelist %}
+                            <ul>
+                                {% for cate in catelist %}
+                                    <li><a href="{% url 'Post:category' cate.id %}">{{ cate.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--<footer id="footer">-->
+<!--<div class="container">-->
+<!--<div class="copyrights">&copy; 2018 <a href="https://templatemag.com/">TemplateMag</a> - All Rights Reserved.-->
+<!--</div>-->
+<!--<div class="footer-menu"><a href="https://templatemag.com/terms/">Terms of Service </a> <span>|</span> <a-->
+<!--href="https://templatemag.com/license/">License</a> <span>|</span> <a-->
+<!--href="https://templatemag.com/privacy/">Privacy Policy</a> <span>|</span> <a-->
+<!--href="https://twitter.com/TemplateMag" target="_blank" class="sidebar-twitter"-->
+<!--title="Follow us on Twitter"><i class="icon-twitter"></i></a> <a href="https://facebook.com/TemplateMag"-->
+<!--target="_blank"-->
+<!--class="sidebar-facebook"-->
+<!--title="Follow us on Facebook"><i-->
+<!--class="icon-facebook"></i></a> <a href="https://feeds.feedburner.com/TemplateMag" target="_blank"-->
+<!--class="sidebar-rss" title="Subscribe to our RSS feed"><i-->
+<!--class="icon-rss"></i></a> <a-->
+<!--onclick="javascript:window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"-->
+<!--class="sidebar-mail" title="Subscribe via Email"><i class="icon-mail-alt" style="cursor: pointer;"></i></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</footer>-->
+<!--<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>-->
+<!--<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>-->
+<!--<script src="https://templatemag.com/wp-content/cache/min/1/facefdfb5208befafa0135b3954abd4b.js" data-minify="1"-->
+<!--defer></script>-->
+</body>
+</html>
