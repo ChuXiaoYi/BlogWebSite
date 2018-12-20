@@ -1159,7 +1159,8 @@ html {
     /*padding-right: 15px;*/
     /*padding-left: 15px;*/
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+    height: 100%;
 }
 
 @media (min-width: 576px) {
@@ -1200,7 +1201,8 @@ html {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px
+    margin-left: -15px;
+    height: 100%;
 }
 
 .no-gutters {
@@ -1218,7 +1220,8 @@ html {
     width: 100%;
     min-height: 1px;
     padding-right: 15px;
-    padding-left: 15px
+    padding-left: 15px;
+    overflow: scroll;
 }
 
 .col {
@@ -3515,7 +3518,9 @@ img {
 }
 
 #main {
-    margin-top: 80px
+    /*margin-top: 80px*/
+    padding: 60px 0 30px 0;
+    height: 100%;
 }
 
 .alignleft {
@@ -3586,9 +3591,10 @@ img {
 }
 
 .container-wrap {
-    background: #f5f6f7;
+    /*background: #f5f6f7;*/
     padding: 30px 0;
-    margin: 0
+    margin: 0;
+    height: 100%;
 }
 
 .scrolltop {
@@ -3778,7 +3784,7 @@ img {
 }
 
 #header {
-    background: #fff;
+    background: #ffffff5e;
     z-index: 1030;
     padding: 10px 0;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .06);
@@ -4246,11 +4252,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .post {
     padding: 30px;
-    box-shadow: 0 0 5px #d9dcde;
     border-radius: 3px;
     background: #fff;
     position: relative;
-    margin-bottom: 30px
+    margin: 15px 0;
+    box-shadow: 0 0 20px 8px #d9dcde
 }
 
 .post .entry-header {
@@ -4521,11 +4527,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog-sidebar {
-    position: relative
+    position: relative;
+    margin-top: 20px;
 }
 
 .blog-sidebar .widget-area {
-    box-shadow: 0 0 5px #d9dcde;
+    box-shadow: 0 0 10px 8px #d9dcde;
     border-radius: 3px;
     background: #fff;
     position: relative;
@@ -6117,7 +6124,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 body {
-    background: #f5f6f7;
+    /*background: #f5f6f7;*/
+    background-image: url("../img/back4.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
 }
 
 #header > .container > #topnav {
@@ -6129,7 +6141,7 @@ body {
     float: right;
 }
 
-.post .entry-meta .meta-date{
+.post .entry-meta .meta-date {
     margin-right: 10px;
 }
 

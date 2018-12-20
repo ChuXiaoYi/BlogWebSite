@@ -29,7 +29,7 @@ def list(request):
             ]
         )
 
-    limit = 3
+    limit = 5
     paginator = Paginator(post, limit)
     page = request.GET.get('page', 1)
     result = paginator.page(page)
