@@ -75,15 +75,25 @@ def archives(request, year, month):
     :return:
     """
     post_list = Post.objects.filter(created_time__year=year, created_time__month=month)
+    limit = 5
+    paginator = Paginator(post_list, limit)
+    page = request.GET.get('page', 1)
+    result = paginator.page(page)
     context = {
-        'post_list': post_list
+        "post_list": result,
+        "page": page,
     }
     return render(request, template_name='Post/index.html', context=context)
 
 
 def category(request, pk):
     post_list = Post.objects.filter(category_id=pk)
+    limit = 5
+    paginator = Paginator(post_list, limit)
+    page = request.GET.get('page', 1)
+    result = paginator.page(page)
     context = {
-        'post_list': post_list
+        "post_list": result,
+        "page": page,
     }
     return render(request, template_name='Post/list.html', context=context)
