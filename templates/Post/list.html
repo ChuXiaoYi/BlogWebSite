@@ -43,29 +43,29 @@
             <div class="row">
                 <div class="col-lg-8">
                     <article-list>
-                    {% for post in post_list %}
-                        <article id="post-77"
-                                 class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
-                            <h2 class="entry-title">
-                                <a href="{% url 'Post:detail' post.id %}" rel="bookmark">
-                                    {{ post.title }}
-                                </a>
-                            </h2>
-                            <div class="entry-meta"><i class="glyphicon glyphicon-time"></i>
-                                <time class="meta-date" itemprop="datePublished"
-                                      datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
-                                <i class="glyphicon glyphicon-tags"></i>&nbsp;
-                                <span class="post-cate">{{ post.category.name }}</span>
-                            </div>
-                            <div class="entry-content">
-                                <p>{{ post.body | truncatewords:"1" | safe }}&hellip;</p>
-                            </div>
-                            <div class="etry-more">
-                                <a href="{% url 'Post:detail' post.id %}" rel="bookmark">Read More</a>
-                            </div>
-                        </article>
+                        {% for post in post_list %}
+                            <article id="post-77"
+                                     class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
+                                <h2 class="entry-title">
+                                    <a href="{% url 'Post:detail' post.id %}" rel="bookmark">
+                                        {{ post.title }}
+                                    </a>
+                                </h2>
+                                <div class="entry-meta"><i class="glyphicon glyphicon-time"></i>
+                                    <time class="meta-date" itemprop="datePublished"
+                                          datetime="{{ post.modified_time }}"> {{ post.modified_time }}</time>
+                                    <i class="glyphicon glyphicon-tags"></i>&nbsp;
+                                    <span class="post-cate">{{ post.category.name }}</span>
+                                </div>
+                                <div class="entry-content">
+                                    <p>{{ post.body | truncatewords:"1" | safe }}&hellip;</p>
+                                </div>
+                                <div class="etry-more">
+                                    <a href="{% url 'Post:detail' post.id %}" rel="bookmark">Read More</a>
+                                </div>
+                            </article>
 
-                    {% endfor %}
+                        {% endfor %}
                     </article-list>
                     <div class="pagination clearfix">
                         <ul class="pager">
@@ -118,31 +118,10 @@
             </div>
         </div>
     </div>
+    <div id="footer">
+         Copyright © 2018 · 京ICP备18063897号
+    </div>
 </main>
-<!--<footer id="footer">-->
-<!--<div class="container">-->
-<!--<div class="copyrights">&copy; 2018 <a href="https://templatemag.com/">TemplateMag</a> - All Rights Reserved.-->
-<!--</div>-->
-<!--<div class="footer-menu"><a href="https://templatemag.com/terms/">Terms of Service </a> <span>|</span> <a-->
-<!--href="https://templatemag.com/license/">License</a> <span>|</span> <a-->
-<!--href="https://templatemag.com/privacy/">Privacy Policy</a> <span>|</span> <a-->
-<!--href="https://twitter.com/TemplateMag" target="_blank" class="sidebar-twitter"-->
-<!--title="Follow us on Twitter"><i class="icon-twitter"></i></a> <a href="https://facebook.com/TemplateMag"-->
-<!--target="_blank"-->
-<!--class="sidebar-facebook"-->
-<!--title="Follow us on Facebook"><i-->
-<!--class="icon-facebook"></i></a> <a href="https://feeds.feedburner.com/TemplateMag" target="_blank"-->
-<!--class="sidebar-rss" title="Subscribe to our RSS feed"><i-->
-<!--class="icon-rss"></i></a> <a-->
-<!--onclick="javascript:window.open('https://feedburner.google.com/fb/a/mailverify?uri=TemplateMag', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"-->
-<!--class="sidebar-mail" title="Subscribe via Email"><i class="icon-mail-alt" style="cursor: pointer;"></i></a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</footer>-->
-<!--<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>-->
-<!--<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>-->
-<!--<script src="https://templatemag.com/wp-content/cache/min/1/facefdfb5208befafa0135b3954abd4b.js" data-minify="1"-->
-<!--defer></script>-->
 </body>
 </html>
 
