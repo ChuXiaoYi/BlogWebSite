@@ -4256,7 +4256,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     border-radius: 3px;
     background: #eae5dd87;
     position: relative;
-    margin: 15px 0;
+    margin: 15px;
     box-shadow: 0 0 20px 8px #d9dcde
 }
 
