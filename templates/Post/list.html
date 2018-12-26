@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - TemplateMag</title>
+    <title>小一一's blog</title>
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'Post/css/list.css' %}"/>
@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <article-list>
+                    <div class="article-list" >
                         {% for post in post_list %}
                             <article id="post-77"
                                      class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
@@ -66,7 +66,7 @@
                             </article>
 
                         {% endfor %}
-                    </article-list>
+                    </div>
                     <div class="pagination clearfix">
                         <ul class="pager">
                             {% if post_list.has_previous %}

@@ -3627,6 +3627,7 @@ img {
     margin: 0;
     font-size: 16px;
     width: 100%;
+    bottom: 0;
 }
 
 .wp-pagenavi {
@@ -4534,7 +4535,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .blog-sidebar .widget-area {
     box-shadow: 0 0 10px 8px #d9dcde;
     border-radius: 3px;
-    background: #fff;
+    background: #eae5dd87;
     position: relative;
     margin-bottom: 30px;
     padding: 25px;
@@ -6147,5 +6148,10 @@ body {
 
 .post .entry-meta .meta-date {
     margin-right: 10px;
+}
+
+.row .article-list {
+    height: 80%;
+    overflow: scroll;
 }
 
