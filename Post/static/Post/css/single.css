@@ -4525,7 +4525,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .blog-sidebar {
-    position: relative
+    position: relative;
+    height: 100%
 }
 
 .blog-sidebar .widget-area {
@@ -4536,8 +4537,13 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 30px;
     padding: 25px;
     /*text-align: center;*/
+    height: 100%;
+    overflow: scroll;
 }
 
+.blog-sidebar .widget-area::-webkit-scrollbar {
+        display: none;
+    }
 .blog-sidebar .widget-title {
     color: #2d405f;
     font-size: 20px;
@@ -6110,7 +6116,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-weight: 500;
     margin: 0 0 20px -15px;
     padding: 0;
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 .jumbotron {
