@@ -6,7 +6,14 @@
 {% endblock %}
 
 {% block main %}
-        <div class="container-wrap blog-wrap">
+    <a href="#" id="backtop" class="btn-meau" title="返回顶部"
+       style="display: block;z-index: 9999;background-color: white;padding: 10px;position: fixed;bottom: 10%;right: 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="12">
+            <path d="M9.314 0l9.313 9.314-2.12 2.121-7.193-7.192-7.193 7.192L0 9.314z" fill="#f6f6f6"
+                  fill-rule="evenodd" style="fill: #025fbc;"></path>
+        </svg>
+    </a>
+    <div class="container-wrap blog-wrap">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -35,12 +42,12 @@
                         </div>
                         <div class="entry-content" id="entry-content"><p>{{ post.body | safe }}&hellip;</p></div>
                     </article>
-{#                    <article id="comment" style="display: none">#}
-{#                        这里是评论#}
-{#                    </article>#}
-{#                    <button id="show-comment" onclick="show_comment()">#}
-{#                        查看评论#}
-{#                    </button>#}
+                    {#                    <article id="comment" style="display: none">#}
+                    {#                        这里是评论#}
+                    {#                    </article>#}
+                    {#                    <button id="show-comment" onclick="show_comment()">#}
+                    {#                        查看评论#}
+                    {#                    </button>#}
                 </div>
             </div>
         </div>
@@ -48,11 +55,11 @@
     <script>
         function show_comment() {
             var btn_text = document.getElementById('show-comment');
-            if(btn_text.innerText == '查看评论'){
+            if (btn_text.innerText == '查看评论') {
                 document.getElementById('post-77').style.display = 'none';
                 document.getElementById('comment').removeAttribute('style');
                 btn_text.innerText = '查看文章'
-            }else{
+            } else {
                 document.getElementById('comment').style.display = 'none';
                 document.getElementById('post-77').removeAttribute('style');
                 btn_text.innerText = '查看评论'
