@@ -4,6 +4,11 @@
 {% load highlight %}
 {% block link %}
     <link rel="stylesheet" href="{% static 'Post/css/list.css' %}"/>
+    <style>
+        span.highlighted {
+            color: red;
+        }
+    </style>
 {% endblock %}
 
 {% block main %}
@@ -11,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="article-list" >
+                    <div class="article-list">
                         {% if query %}
                             {% for result in page.object_list %}
                                 <article id="post-77"
