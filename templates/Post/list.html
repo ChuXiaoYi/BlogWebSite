@@ -72,7 +72,7 @@
                     <!-- A single blog post -->
                     <section class="post">
                         <header class="post-header">
-                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar"
+                            <img width="48" height="48"  class="post-avatar"
                                  src="{% static 'Post/img/favicon.jpg' %}">
 
                             <h2 class="post-title">{{ post.title }}</h2>
@@ -88,7 +88,7 @@
 
                         <div class="post-description">
                             <p>
-                                {{ post.body | truncatewords:"4" | safe }}
+                                {{ post.body | truncatewords:"2" | safe }}
 
                             </p>
                         </div>
