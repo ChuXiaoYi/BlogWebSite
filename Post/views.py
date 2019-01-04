@@ -57,6 +57,15 @@ def detail(request, pk):
     post.body = md.convert(post.body)
 
     comment_list = Comment.objects.filter(post__id=pk)
+    for comment in comment_list:
+        comment.text = markdown.markdown(
+            comment.text,
+            extensions=[
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite',
+                'markdown.extensions.fenced_code',
+            ]
+        )
 
     context = {
         'post': post,

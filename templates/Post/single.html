@@ -78,6 +78,31 @@
         <div class="content">
             {{ post.body | safe }}
         </div>
+
+        <div class="comment-box">
+            <form class="comment" method="post" action="{% url 'comment:comment' post.id %}">
+                <textarea class="comment-content" name="comment" placeholder="想对作者说点什么。。。"></textarea>
+                <div class="commit-div">
+                    <span id="tip_comment">支持markdown格式</span>
+                    <button class="pure-button" type="submit" href="#">提交</button>
+                </div>
+            </form>
+            <div class="comment-list-box">
+                <h2>评论</h2>
+                {% for comment in comment_list %}
+                    <ul class="comment-list ">
+                        <li>
+                            <i class="fa fa-user-circle"></i>
+                            <span>阿联酋酋长：</span>
+                            <div class="comment-info">{{ comment.text | safe }}</div>
+
+                        </li>
+                    </ul>
+
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
 </div>
 

@@ -89,9 +89,11 @@ appears on the left side of the page.
     left: 0;
     bottom: 0;
     z-index: 1000; /* so the menu or its navicon stays above all content */
-    background: #191818;
+    /*background: #191818;*/
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    background: rgb(61, 79, 93);
+    word-break: break-all;
 }
 
 /*
@@ -131,8 +133,7 @@ Change color of the anchor links on hover/focus.
 /*
 This styles the selected menu item `<li>`.
 */
-#menu .pure-menu-selected,
-#menu .pure-menu-heading {
+#menu .pure-menu-selected {
     background: #1f8dd6;
 }
 
@@ -148,7 +149,7 @@ This styles the menu heading.
 */
 #menu .pure-menu-heading {
     font-size: 110%;
-    color: #fff;
+    color: rgb(176, 202, 219);;
     margin: 0;
 }
 
@@ -256,6 +257,78 @@ img {
     max-width: 100%;
 }
 
-#main{
-    word-break: break-all;
+.comment-box {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
 }
+
+.comment {
+    overflow: auto;
+}
+
+.comment .comment-content {
+    display: block;
+    width: 100%;
+    padding: 7px 8px;
+    background: #fff;
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    resize: none;
+    height: 38px;
+    font-size: 14px;
+    line-height: 22px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: height .3s ease-in-out;
+    transition: height .3s ease-in-out;
+}
+
+.comment #tip_comment {
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
+}
+
+.comment .commit-div {
+    float: right;
+    margin-top: 1px;
+}
+
+.comment .pure-button {
+    margin: 0;
+    margin-left: 16px;
+    height: 30px;
+    line-height: 28px;
+    min-width: 72px;
+    color: #fff !important;
+    border: 1px solid #ca0c16 !important;
+    background-color: #ca0c16 !important;
+    padding: 0 8px;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.comment-box .comment-list-box .comment-list {
+    border-bottom: 1px dashed #e0e0e0;
+    padding-left: 10px;
+}
+
+.comment-box .comment-list-box .comment-list li {
+    list-style: none;
+}
+
+.comment-box .comment-list-box .comment-list .comment-info {
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
