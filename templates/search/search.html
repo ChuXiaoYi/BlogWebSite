@@ -1,98 +1,116 @@
 {% extends 'Post/base.html' %}
 {% load static %}
-{% load simple_tags %}
 {% load highlight %}
-{% block link %}
-    <link rel="stylesheet" href="{% static 'Post/css/list.css' %}"/>
-    <style>
-        span.highlighted {
-            color: red;
-        }
-    </style>
-{% endblock %}
 
 {% block main %}
-    <div class="container-wrap blog-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="article-list">
-                        {% if query %}
-                            {% for result in page.object_list %}
-                                <article id="post-77"
-                                         class="clearfix post post-77 blog type-blog status-publish has-post-thumbnail hentry">
-                                    <h2 class="entry-title">
-                                        <a href="{% url 'Post:detail' result.object.id %}" rel="bookmark">
-                                            {% highlight result.object.title with query %}
-                                        </a>
-                                    </h2>
-                                    <div class="entry-meta"><i class="glyphicon glyphicon-time"></i>
-                                        <time class="meta-date" itemprop="datePublished"
-                                              datetime="{{ result.object.modified_time }}"> {{ result.object.modified_time }}</time>
-                                        <i class="glyphicon glyphicon-tags"></i>&nbsp;
-                                        <span class="post-cate">{{ result.object.category.name }}</span>
-                                    </div>
-                                    <div class="entry-content">
-                                        <p>{% highlight result.object.body with query %}&hellip;</p>
-                                    </div>
-                                    <div class="etry-more">
-                                        <a href="{% url 'Post:detail' result.object.id %}" rel="bookmark">Read More</a>
-                                    </div>
-                                </article>
-                            {% empty %}
-                                <div class="no-post">没有搜索到你想要的结果！</div>
-                            {% endfor %}
-                        {% endif %}
+
+
+<div id="layout" class="pure-g">
+
+
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="search-form">
+            <form class="pure-form" action="{% url 'haystack_search' %}">
+                <input type="text" class="pure-input-rounded" name="q" placeholder="search">
+                <button type="submit" class="pure-button submit-button">Search</button>
+            </form>
+        </div>
+        <div class="header">
+            <h1 class="brand-title">A Sample Blog</h1>
+            <h2 class="brand-tagline">Creating a blog layout using Pure</h2>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://purecss.io">Pure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://yuilibrary.com">YUI Library</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="button-form">
+            {% if post_list.has_previous %}
+                <a class="pure-button button-left" href="?page={{ post_list.previous_page_number }}">
+                    <i class="fa fa-arrow-circle-left fa-inverse">上一页</i>
+                </a>
+            {% else %}
+                <a class="pure-button pure-button-disabled button-left">
+                    <i class="fa fa-arrow-circle-left fa-inverse">上一页</i>
+                </a>
+            {% endif %}
+
+            {% if post_list.has_next %}
+                <a class="pure-button button-right" href="?page={{ post_list.next_page_number }}">
+                    <i class="fa fa-arrow-circle-right fa-inverse">下一页</i>
+                </a>
+            {% else %}
+                <a class="pure-button pure-button-disabled button-right">
+                    <i class="fa fa-arrow-circle-right fa-inverse">下一页</i>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            {% if query %}
+                {% for result in page.object_list %}
+                    <div class="posts">
+                        <h1 class="content-subhead">
+                            {{ result.object.category.name }}
+                            <a class="read-more" href="{% url 'Post:detail' result.object.id %}">
+                                阅读更多
+                            </a>
+                        </h1>
+
+                        <!-- A single blog post -->
+                        <section class="post">
+                            <header class="post-header">
+                                <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar"
+                                     src="{% static 'Post/img/favicon.jpg' %}">
+
+                                <h2 class="post-title">{% highlight result.object.title with query %}</h2>
+
+                                <p class="post-meta">
+                                    By <a href="#" class="post-author">Tilo Mitra</a> under <a
+                                        class="post-category post-category-design" href="#">CSS</a> <a
+                                        class="post-category post-category-pure" href="#">Pure</a>
+                                </p>
+                            </header>
+
+                            <div class="post-description">
+                                <p>
+                                    {% highlight result.object.body with query %}
+                                </p>
+                            </div>
+                        </section>
                     </div>
-                    <div class="pagination clearfix">
-                        <ul class="pager">
-                            {% if page.has_previous %}
-                                <li class="previous"><a href="?page={{ page.previous_page_number }}"><span
-                                        aria-hidden="true">&larr;</span> Newer</a></li>
-                            {% else %}
-                                <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span>
-                                    Newer</a></li>
-                            {% endif %}
-                            {% if page.has_next %}
-                                <li class="next"><a href="?page={{ page.next_page_number }}">Older <span
-                                        aria-hidden="true">&rarr;</span></a></li>
-                            {% else %}
-                                <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                            codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0"
-                            width="100%" height="auto" id="honehoneclock" align="middle">
-                        <param name="allowScriptAccess" value="always">
-                        <param name="movie"
-                               value="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf">
-                        <param name="quality" value="high">
-                        <param name="bgcolor" value="#ffffff">
-                        <param name="wmode" value="transparent">
-                        <embed wmode="transparent"
-                               src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf"
-                               quality="high" bgcolor="#ffffff" width="100%" height="auto" name="honehoneclock"
-                               align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"
-                               pluginspage="http://www.macromedia.com/go/getflashplayer" autostart="true">
-                    </object>
-                    <div class="blog-sidebar">
-                        <div class="widget-area">
-                            <h3>Category</h3>
-                            {% get_categories as catelist %}
-                            <ul>
-                                {% for cate in catelist %}
-                                    <li><a href="{% url 'Post:category' cate.id %}">{{ cate.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+                {% empty %}
+                    没有找到诶T T
+                {% endfor %}
+
+            {% endif %}
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+                        <li class="pure-menu-item">
+                            <a href="https://github.com/ChuXiaoYi?tab=repositories" class="pure-menu-link">
+                                <i class="fa fa-github fa-fw"></i>
+                                GitHub
+                            </a>
+                        </li>
+                        <li class="pure-menu-item"><a href="https://blog.csdn.net/weixin_40156487"
+                                                      class="pure-menu-link">CSDN</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
 
+{% endblock %}

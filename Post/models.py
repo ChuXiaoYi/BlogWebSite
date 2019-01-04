@@ -31,6 +31,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=True)  # ForeignKey表示1对多（多个post对应1个category）
     tags = models.ManyToManyField(Tag, blank=True)
     views = models.PositiveIntegerField(default=0)  # 阅读量
+    good = models.PositiveIntegerField(default=0) # 点赞数
 
     class Meta:
         ordering = ['-created_time']
