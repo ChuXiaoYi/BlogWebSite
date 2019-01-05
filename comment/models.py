@@ -12,7 +12,7 @@ class Comment(models.Model):
 
     # 评论
     reply_to = models.IntegerField(verbose_name="回复的哪条评论", default=0)
-    # reply_name = models.CharField(verbose_name="", default=0)
+    reply_name = models.CharField(verbose_name="回复的哪个人", max_length=50, default=None)
     root_to = models.IntegerField(verbose_name="回复的是哪个主评论", default=0)
 
     class Meta:

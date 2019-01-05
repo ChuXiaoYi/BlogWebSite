@@ -96,14 +96,18 @@
 
                 {% for comment in comment_list %}
                     <ul class="comment-list ">
-                        <li class="comment-li first-comment" onmouseover="show_reply()" onmouseleave="hidden_replay()">
+                        <li class="comment-li first-comment" onmouseover="show_reply(this)" onmouseleave="hidden_replay(this)">
                             <i class="fa fa-user-circle"></i>
-                            <span>阿联酋酋长：</span>
-                            <a class="reply" id="reply" href='javascript:void(0);' onclick="show_replyform()">回复</a>
+                            <span>{{ comment.name }}：</span>
+                            <a class="reply" href='javascript:void(0);' onclick="show_replyform(this)">回复</a>
                             <div class="comment-info">{{ comment.text | safe }}</div>
 
-                            <form id="reply-form" method="get" action="{% url 'comment:comment' pk=post.id %}">
-                                <textarea class="comment-content" name="comment" placeholder="想对作者说点什么。。。"></textarea>
+                            <form class="reply-form" id="reply-form" method="post" action="{% url 'comment:comment' pk=post.id %}">
+                                <input hidden name="reply_to" value="{{ comment.id }}">
+                                <input hidden name="reply_name" value="{{ comment.name }}">
+                                <input hidden name="root_to" value="{{ comment.id }}">
+                                <textarea class="comment-content" name="comment" onblur="hidden_replyform(this)"
+                                           placeholder="想对作者说点什么。。。"></textarea>
                                 <div class="comment-div">
                                     <span id="tip_comment">支持markdown格式</span>
                                     <button class="pure-button" type="submit" href="#">发表评论</button>
@@ -111,8 +115,28 @@
                             </form>
 
                         </li>
-{#                        {% for reply in comment.replies  %}#}
+                        {% for reply in comment.replies %}
+                            <li class="comment-li reply-comment" onmouseover="show_reply(this)"
+                                onmouseleave="hidden_replay(this)">
+                                <i class="fa fa-user-circle"></i>
+                                <span>{{ reply.name }}回复{{ reply.reply_name }}: </span>
+                                <a class="reply" href='javascript:void(0);' onclick="show_replyform(this)">回复</a>
+                                <div class="comment-info">{{ reply.text | safe }}</div>
 
+                                <form class="reply-form" method="post" action="{% url 'comment:comment' pk=post.id %}">
+                                    <input hidden name="reply_to" value="{{ reply.id }}">
+                                    <input hidden name="reply_name" value="{{ reply.name }}">
+                                    <input hidden name="root_to" value="{{ comment.id }}">
+                                    <textarea class="comment-content" name="comment" onblur="hidden_replyform(this)"
+                                              placeholder="想对作者说点什么。。。"></textarea>
+                                    <div class="comment-div">
+                                        <span id="tip_comment">支持markdown格式</span>
+                                        <button class="pure-button" type="submit" href="#">发表评论</button>
+                                    </div>
+                                </form>
+
+                            </li>
+                        {% endfor %}
 
 
                     </ul>

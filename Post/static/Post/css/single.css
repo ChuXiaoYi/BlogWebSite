@@ -321,6 +321,7 @@ img {
 .comment-box .comment-list-box .comment-list {
     border-bottom: 1px dashed #e0e0e0;
     padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .comment-box .comment-list-box .comment-list .comment-li {
@@ -346,9 +347,10 @@ img {
     text-align: center;
 }
 
-.comment-box .comment-list-box .comment-list .comment-li #reply-form {
+.comment-box .comment-list-box .comment-list .comment-li .reply-form {
     display: none;
     padding-left: 20px;
+    overflow: auto;
 }
 
 

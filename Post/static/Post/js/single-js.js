@@ -1,20 +1,20 @@
 (function (window, document) {
 
-    var layout   = document.getElementById('layout'),
-        menu     = document.getElementById('menu'),
+    var layout = document.getElementById('layout'),
+        menu = document.getElementById('menu'),
         menuLink = document.getElementById('menuLink'),
-        content  = document.getElementById('main');
+        content = document.getElementById('main');
 
     function toggleClass(element, className) {
         var classes = element.className.split(/\s+/),
             length = classes.length,
             i = 0;
 
-        for(; i < length; i++) {
-          if (classes[i] === className) {
-            classes.splice(i, 1);
-            break;
-          }
+        for (; i < length; i++) {
+            if (classes[i] === className) {
+                classes.splice(i, 1);
+                break;
+            }
         }
         // The className is not found
         if (length === classes.length) {
@@ -37,7 +37,7 @@
         toggleAll(e);
     };
 
-    content.onclick = function(e) {
+    content.onclick = function (e) {
         if (menu.className.indexOf('active') !== -1) {
             toggleAll(e);
         }
@@ -45,26 +45,45 @@
 
 }(this, this.document));
 
-/*
-鼠标滑过，显示回复功能
+document.getElementById('text-focus-on').onmousedown = function (e) {
+    //现代浏览器阻止默认事件
+    if (e && e.preventDefault)
+        e.preventDefault();
+    //IE阻止默认事件
+    else
+        window.event.returnValue = false;
+    return false;
+};
+
+/**
+ * 鼠标滑过，显示回复功能
  */
-function show_reply() {
-    var reply = document.getElementById('reply');
-    reply.style.display = 'inline';
+function show_reply(obj) {
+    obj.getElementsByClassName('reply')[0].style.display = 'inline-block';
 }
 
-/*
-鼠标移开，隐藏回复功能
+/**
+ * 鼠标移开，隐藏回复功能
  */
-function hidden_replay() {
-    var reply = document.getElementById('reply');
-    reply.style.display = 'none'
+function hidden_replay(obj) {
+    obj.getElementsByClassName('reply')[0].style.display = 'none';
 }
 
-/*
-点击"回复"，出现回复评论框
+/**
+ * 点击"回复"，出现回复评论框
  */
-function show_replyform(){
-    var reply_form = document.getElementById('reply-form')
-    reply_form.style.display = 'block';
+function show_replyform(obj) {
+    obj.parentElement.getElementsByClassName('reply-form')[0].style.display = 'block';
+    obj.parentElement.getElementsByClassName('comment-content')[0].focus();
+    obj.parentElement.getElementsByClassName('comment-div')[0].getElementsByClassName('pure-button')[0]
+        .setAttribute("id", "text-focus-on")
 }
+
+/**
+ * 评论失焦自动隐藏
+ */
+function hidden_replyform(obj) {
+    obj.parentElement.style.display = 'none';
+}
+
+

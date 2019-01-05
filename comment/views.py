@@ -18,6 +18,7 @@ def submit_comment(request, pk):
     comment.post = Post.objects.get(id=pk)
     comment.reply_to = post.get('reply_to', 0)
     comment.root_to = post.get('root_to', 0)
+    comment.reply_name = post.get('reply_name', '外星人')
     comment.save()
 
     return redirect(reverse('Post:detail', kwargs={"pk": pk}))
