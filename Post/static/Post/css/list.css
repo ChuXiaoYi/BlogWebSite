@@ -35,9 +35,12 @@ h3 {
 }
 
 .sidebar {
-    background: rgb(61, 79, 93);
+    /*background: rgb(61, 79, 93);*/
+    background-image: url("../img/list-back3.jpg");
     color: #fff;
     text-align: center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
 }
 
 .brand-title,
@@ -51,7 +54,7 @@ h3 {
 
 .brand-tagline {
     font-weight: 300;
-    color: rgb(176, 202, 219);
+    color: rgb(47, 105, 144);
 }
 
 .nav-list {
@@ -69,7 +72,7 @@ h3 {
 .nav-item a {
     background: transparent;
     border: 2px solid rgb(176, 202, 219);
-    color: #fff;
+    color: #2b4d7b;
     margin-top: 1em;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -232,7 +235,7 @@ h3 {
 }
 
 .search-form .pure-form .submit-button{
-    color: rgb(255, 255, 255);
+    color: #4d85d1;
     background-color: #e6e6e600;
 }
 

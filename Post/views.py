@@ -47,6 +47,7 @@ def detail(request, pk):
     :param pk: 接收到的文章的主键id
     :return:
     """
+    # 文章详情
     post = Post.objects.get(id=pk)
     post.add_views()
     md = markdown.Markdown(extensions=[
@@ -56,6 +57,7 @@ def detail(request, pk):
     ])
     post.body = md.convert(post.body)
 
+    # 评论详情
     comment_list = Comment.objects.filter(post__id=pk)
     for comment in comment_list:
         comment.text = markdown.markdown(

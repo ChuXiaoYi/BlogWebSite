@@ -327,8 +327,13 @@ img {
     padding-left: 20px;
 }
 
+.pure-menu-heading .menu-avatar {
+    border-radius: 50px;
+}
 
-
+.pure-menu {
+    text-align: center;
+}
 
 
 
