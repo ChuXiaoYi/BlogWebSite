@@ -58,7 +58,7 @@ def detail(request, pk):
     post.body = md.convert(post.body)
 
     # 评论详情
-    comment_list = Comment.objects.filter(post__id=pk)
+    comment_list = post.comment_set.filter(post__comment__reply_to=0)
     for comment in comment_list:
         comment.text = markdown.markdown(
             comment.text,
@@ -68,6 +68,7 @@ def detail(request, pk):
                 'markdown.extensions.fenced_code',
             ]
         )
+        comment.replies = Comment.objects.filter(post__comment__root_to=comment.id)
 
     context = {
         'post': post,

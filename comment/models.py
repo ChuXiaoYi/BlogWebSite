@@ -8,8 +8,12 @@ class Comment(models.Model):
     text = models.TextField()
     created_time = models.DateTimeField(auto_now_add=True)
 
-    to_comment = models.OneToOneField('Comment', on_delete=True, default=None)
     post = models.ForeignKey('Post.Post', on_delete=True)  # 一篇文章有多个评论
+
+    # 评论
+    reply_to = models.IntegerField(verbose_name="回复的哪条评论", default=0)
+    # reply_name = models.CharField(verbose_name="", default=0)
+    root_to = models.IntegerField(verbose_name="回复的是哪个主评论", default=0)
 
     class Meta:
         ordering = ['-created_time']

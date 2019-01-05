@@ -11,6 +11,6 @@ from . import views
 app_name = 'comment'
 
 urlpatterns = [
-    url(r'^comment/post-(?P<pk>\d+)$', views.submit_comment, name="comment"),
+    url(r'^comment/post-(?P<pk>\d+)/$', views.submit_comment, name="comment"),
 
 ]

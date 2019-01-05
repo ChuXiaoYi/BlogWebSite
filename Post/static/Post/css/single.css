@@ -270,6 +270,7 @@ img {
     overflow: auto;
 }
 
+.comment-list-box .comment-content,
 .comment .comment-content {
     display: block;
     width: 100%;
@@ -287,17 +288,20 @@ img {
     transition: height .3s ease-in-out;
 }
 
+.comment-list-box #tip_comment,
 .comment #tip_comment {
     font-size: 12px;
     color: #999;
     line-height: 20px;
 }
 
-.comment .commit-div {
+.comment-list-box .comment-div,
+.comment .comment-div {
     float: right;
     margin-top: 1px;
 }
 
+.comment-list-box .pure-button,
 .comment .pure-button {
     margin: 0;
     margin-left: 16px;
@@ -319,8 +323,15 @@ img {
     padding-left: 10px;
 }
 
-.comment-box .comment-list-box .comment-list li {
+.comment-box .comment-list-box .comment-list .comment-li {
     list-style: none;
+}
+
+.comment-box .comment-list-box .comment-list .comment-li .reply {
+    display: none;
+    font-size: 12px;
+    color: #999;
+    line-height: 20px;
 }
 
 .comment-box .comment-list-box .comment-list .comment-info {
@@ -335,6 +346,10 @@ img {
     text-align: center;
 }
 
+.comment-box .comment-list-box .comment-list .comment-li #reply-form {
+    display: none;
+    padding-left: 20px;
+}
 
 
 
