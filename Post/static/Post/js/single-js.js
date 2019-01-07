@@ -45,15 +45,6 @@
 
 }(this, this.document));
 
-document.getElementById('text-focus-on').onmousedown = function (e) {
-    //现代浏览器阻止默认事件
-    if (e && e.preventDefault)
-        e.preventDefault();
-    //IE阻止默认事件
-    else
-        window.event.returnValue = false;
-    return false;
-};
 
 /**
  * 鼠标滑过，显示回复功能
@@ -75,15 +66,21 @@ function hidden_replay(obj) {
 function show_replyform(obj) {
     obj.parentElement.getElementsByClassName('reply-form')[0].style.display = 'block';
     obj.parentElement.getElementsByClassName('comment-content')[0].focus();
-    obj.parentElement.getElementsByClassName('comment-div')[0].getElementsByClassName('pure-button')[0]
-        .setAttribute("id", "text-focus-on")
+    // obj.parentElement.getElementsByClassName('comment-div')[0].getElementsByClassName('pure-button')[0]
+    //     .setAttribute("id", "text-focus-on")
 }
 
 /**
  * 评论失焦自动隐藏
  */
 function hidden_replyform(obj) {
-    obj.parentElement.style.display = 'none';
+    //todo
+    // obj.parentElement.style.display = 'none';
 }
 
-
+/**
+ * 评论区聚焦的时候，出现昵称、邮箱的表单
+ */
+function show_person_info(obj){
+    obj.parentElement.getElementsByClassName('pure-group')[0].style.display = 'block'
+}

@@ -258,6 +258,9 @@ img {
     max-width: 100%;
 }
 
+/**
+    评论区域
+ */
 .comment-box {
     margin: 0 auto;
     padding: 0 2em;
@@ -266,8 +269,30 @@ img {
     line-height: 1.6em;
 }
 
+/**
+    评论表单
+ */
 .comment {
     overflow: auto;
+}
+
+.comment .pure-group{
+    display: none;
+}
+
+.reply-form .pure-group input,
+.comment .pure-group input {
+    display: inline;
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    resize: none;
+    height: 38px;
+    font-size: 14px;
+    line-height: 22px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: height .3s ease-in-out;
+    transition: height .3s ease-in-out;
 }
 
 .comment-list-box .comment-content,
@@ -318,6 +343,9 @@ img {
     text-align: center;
 }
 
+/*
+    评论展示区
+ */
 .comment-box .comment-list-box .comment-list {
     border-bottom: 1px dashed #e0e0e0;
     padding-left: 10px;

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+# import djcelery
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,9 +40,31 @@ INSTALLED_APPS = [
     'haystack',
     "Post",
     "comment",
-    'mdeditor'
+    'mdeditor',
 ]
 
+# django-celery配置
+# djcelery.setup_loader()
+# BROKER_URL = 'redis://127.0.0.1:6379/3'
+CELERY_IMPORTS = ('comment.tasks')
+
+# 邮箱配置
+EMAIL_USE_SSL = True
+# 发送邮件的驱动
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# 邮件服务器
+EMAIL_HOST = 'smtp.qq.com'
+# smtp服务器的端口
+EMAIL_PORT = 465
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'mail@chuxiaoyi.cn'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'stkqrnoqyazibfef'
+# 收件人看到的发件人
+EMAIL_FROM = "cxy's blog<mail@chuxiaoyi.cn>"
+DEFAULT_FROM_EMAIL = "cxy's blog<mail@chuxiaoyi.cn>"
+
+# 全文检索
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'Post.whoosh_cn_backend.WhooshEngine',
@@ -143,5 +166,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "Post/static")
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  #uploads必须存在，且在项目目录下
-MEDIA_URL = '/media/'   #你上传的文件和图片会默认存在/uploads/editor下
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # uploads必须存在，且在项目目录下
+MEDIA_URL = '/media/'  # 你上传的文件和图片会默认存在/uploads/editor下
