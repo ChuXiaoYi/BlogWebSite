@@ -24,7 +24,7 @@ class Tag(models.Model):
 class Post(models.Model):
     """文章"""
     title = models.CharField(max_length=100)
-    body = MDTextField()
+    body = models.TextField()
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
     excerpt = models.CharField(max_length=100, blank=True)  # 文章摘要，可为空
