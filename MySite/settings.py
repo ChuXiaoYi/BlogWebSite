@@ -46,10 +46,10 @@ INSTALLED_APPS = [
 # django-celery配置
 # djcelery.setup_loader()
 # BROKER_URL = 'redis://127.0.0.1:6379/3'
-CELERY_IMPORTS = ('comment.tasks')
+# CELERY_IMPORTS = ('comment.tasks')
 
-CELERY_DIR = '/home/BlogWebSite'
-sys.path.insert(0, CELERY_DIR)
+# CELERY_DIR = '/home/BlogWebSite'
+# sys.path.insert(0, CELERY_DIR)
 
 # 邮箱配置
 EMAIL_USE_SSL = True
