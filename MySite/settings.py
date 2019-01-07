@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-# import djcelery
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,6 +47,9 @@ INSTALLED_APPS = [
 # djcelery.setup_loader()
 # BROKER_URL = 'redis://127.0.0.1:6379/3'
 CELERY_IMPORTS = ('comment.tasks')
+
+CELERY_DIR = '/home/BlogWebSite'
+sys.path.insert(0, CELERY_DIR)
 
 # 邮箱配置
 EMAIL_USE_SSL = True
