@@ -77,10 +77,12 @@
                                 <h2 class="post-title">{% highlight result.object.title with query %}</h2>
 
                                 <p class="post-meta">
-                                    By <a href="#" class="post-author">Tilo Mitra</a> under <a
-                                        class="post-category post-category-design" href="#">CSS</a> <a
-                                        class="post-category post-category-pure" href="#">Pure</a>
-                                </p>
+                                <i class="fa fa-thumbs-o-up fa-fw"></i>{{ result.object.good }}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-eye fa-fw"></i>{{ result.object.views }}
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-clock-o fa-fw"></i>{{ result.object.modified_time }}
+                            </p>
                             </header>
 
                             <div class="post-description">
