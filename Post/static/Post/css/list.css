@@ -234,6 +234,10 @@ h3 {
     padding: 0 10px;
 }
 
+.search-form .pure-form input{
+    color: #4d85d1;
+}
+
 .search-form .pure-form .submit-button{
     color: #4d85d1;
     background-color: #e6e6e600;

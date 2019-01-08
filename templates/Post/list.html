@@ -8,7 +8,7 @@
 
     <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="search-form">
-            <form class="pure-form" action="{% url 'haystack_search' %}">
+            <form class="pure-form" method="get" action="{% url 'haystack_search' %}">
                 <input type="text" class="pure-input-rounded" name="q" placeholder="search">
                 <button type="submit" class="pure-button submit-button">Search</button>
             </form>
