@@ -42,10 +42,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('Post:detail', kwargs={'pk': self.id})
 
-    def add_views(self):
-        """
-        增加阅读量
-        :return:
-        """
-        self.views += 1
-        self.save(update_fields=['views'])
+    # def add_views(self):
+    #     """
+    #     增加阅读量
+    #     :return:
+    #     """
+    #     self.views += 1
+    #     self.save(update_fields=['views'])

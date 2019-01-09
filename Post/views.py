@@ -6,6 +6,8 @@ from markdown.extensions.toc import TocExtension
 from comment.models import Comment
 import markdown
 
+from .tasks import add_pv
+
 
 def index(request):
     """
@@ -49,7 +51,9 @@ def detail(request, pk):
     """
     # 文章详情
     post = Post.objects.get(id=pk)
-    post.add_views()
+    # post.add_views()
+    add_pv.delay(pk)
+
     md = markdown.Markdown(extensions=[
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
